@@ -49,8 +49,17 @@ foreach($numbers as $number){
 
 //4.【応用】　次のプログラムは、配列の中で一番大きい値を返す
 //max_array という関数を実装しようとしています。途中の部分を完成させてください。
-
-
+$arr = array(1,2,3,4,5,6,7,8,9,10);
+function  max_array($arr){
+  $max_number = $arr[0];
+  foreach($arr as $a){
+    if($max_number < $a){
+      $max_number = $a;
+    }
+  }
+  return $max_number;
+}
+echo max_array($arr) ."\n";
 
 //5.次のビルトイン関数の用途、使い方を調べて実際に使ってみてください。
 $string = '<p>strip_tagsの課題を実施。</p>
@@ -66,6 +75,28 @@ print_r($stack) ."\n";
 
 
 //array_mergeは一つまたは複数の配列をマージする。
+//配列を作成
+$array1 = [1,2,3];
+$array2 = [10,20,30];
+$array3 = [100,200,300];
+//配列を結合する
+$array = array_merge($array1, $array2,$array3);
+print_r($array) ."\n";
+
+
+// time,mktime
+// 現在のUnixタイムスタンプを表示
+echo time() ."\n";
+
+// mktime
+// 引数で指定した日時のタイムスタンプを取得
+echo date("Y/m/d H:i:s",mktime(0,0,0,2,1,2019)) ."\n";
+
+
+date("Y/m/d" , time());
+date("Y/m/d")
+
+
 
 
 
