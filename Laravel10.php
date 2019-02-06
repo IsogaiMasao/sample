@@ -23,7 +23,8 @@ Route::group(['prefix' => 'admin'], function(){
 
 
 // 2.あなたが考える、group化をすることのメリットを考えてみてください。
-// ➡️
+// ➡️　group化することにより、一つ一つ条件を書く必要がなくなり、作業の効率化を図れる。
+
 
 // 3.「http://XXXXXX.jp/XXX というアクセスが来たときに、
 //    AAAControllerのbbbというAction に渡すRoutingの設定」を書いてみてください.
