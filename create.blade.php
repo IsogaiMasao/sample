@@ -6,63 +6,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>MyNews</title>
-    </head>
-    <body>
-        <h1>Myニュース作成画面</h1>
-    </body>
-
-    {{-- layouts/admin.blade.phpを読み込む --}}
-    @extends('layouts.admin')
 
 
-    {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-    @section('title', 'ニュースの新規作成')
+@extends('layouts.profile')
 
-    {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
-    @section('content')
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <h2>ニュース新規作成</h2>
-                </div>
-            </div>
-        </div>
-    @endsection
+@section('title', 'プロフィール')
 
-</html>
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+               <h2>プロフィール作成画面</h2>
+               <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
+                 @if (count($errors) > 0)
+                    <ul>
+                      @foreach($errors->all() as $e)
+                          <li>{{ $e }}</li>
+                      @endforeach
+                    </ul>
+                 @endif
+                 <div class="form-group row">
+                   <label class="col-md-2" for="name">氏名</label>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                   </div>
+                 </div>
 
+                 <div class="form-group row">
+                   <label class="col-md-2" for="gender">性別</label>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                   </div>
+                 </div>
 
-<!-- 課題
-1 Viewは何をするところでしょうか。簡潔に説明してみてください。
-  □Controllerの指示によって アクセスしてきたユーザーのブラウザに表示する
-  データを生成する ところ
+                 <div class="form-group row">
+                   <label class="col-md-2" for="hobby">趣味</label>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                   </div>
+                 </div>
 
-2 プログラマーがhtmlを書かずにPHPなどのプログラミング言語や
-　　　　フレームワークを使う必要があるのはどういった理由でしょうか。
-　 □ユーザー毎の情報を表示したり、様々な機能を実装したい場合にはHTMLだけでは出来ない。
-　  また、フレームワークを使うことによってPHPを書く場合に１００行必要なところ、
-　  １０行ですんだりする。＊コードの書き方を統一させるため
-
-　　 Codeigniter（コードイグニッター）
-　　 CakePHP（ケイクピーエイチピー）
-　　 Symfony（シンフォニー）
-　　 ZendFramework（ゼンドフレームワーク）
-　　 FuelPHP（フューエルピーエイチピー）
-
-
-3 【応用】 前々章でAdmin/ProfileControllerの
-　　　　　　add Action, edit Action に次のように記述しました。(中略)
-          add Action と edit Action を描画するには、
-          それぞれどこのディレクトリに何というbladeファイルを設置すれば良いでしょうか。
-  □　mkdir -p ./resources/views/admin/profile
-  □  mkdir -p ./resources/views/admin/edit
-
-
-
-4 【応用】 3. の答えを実際に作成してみましょう。
-   また、作成したbladeファイルにhtmlで記述して装飾してみましょう。
-
-
-
--->
+                 <div class="form-group row">
+                      <label class="col-md-2" for="introduction">自己紹介欄</label>
+                      <div class="col-md-10">
+                        <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                      </div>
+                 </div>
+                 
+               </form>
+           </div>
+       </div>
+   </div>
+   @endsection
+   </html>
